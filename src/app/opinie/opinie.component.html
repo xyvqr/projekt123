@@ -1,0 +1,51 @@
+<html>
+<div class="bg-c-2">
+  <img class="bg2" src="../../assets/bg2.jpg" alt="">
+</div>
+<main class="fg">
+    <div class="">
+      <h1 class="dfw-bold txt_d">Dodaj opinię</h1>
+        <input #opinie placeholder="Wpisz opinię" type="text">
+        <button class="btn_add" (click)="add($event)" #btn>Wyslij</button>
+    </div>
+
+</main>
+<body>
+<!--<img src="https://cdn.galleries.smcloud.net/t/galleries/gf-NiY6-dYca-E9ai_zdjecie-65633-664x442-nocrop.JPG"-->
+<!--     alt="Flowers" width="460" height="345">-->
+
+  <div class="comment" *ngFor="let person of comments; trackBy: trackItem">
+    {{ person }}
+  </div>
+
+<div class="offer">
+
+</div>
+
+<style>
+  h1 {color: black}
+  h2 {color: red;}
+  p {color: gray; font-size: 18px;}
+
+</style>
+
+<!--<footer class="text-muted py-5">-->
+
+<!--  <div class="container">-->
+<!--    <p class="float-end mb-1">-->
+<!--      <a href="#">Back to top</a>-->
+<!--    </p>-->
+<!--    <p class="mb-1">Album example is © Bootstrap, but please download and customize it for yourself!</p>-->
+<!--    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.2/getting-started/introduction/">getting started guide</a>.</p>-->
+
+<!--  </div>-->
+<!--</footer>-->
+
+
+
+<footer class="pt-5 my-5 text-muted border-top">
+  Created by Kycia team · © 2022
+</footer>
+</body>
+</html>
+
