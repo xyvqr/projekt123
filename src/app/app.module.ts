@@ -16,7 +16,7 @@ import { OfferComponent } from './offer/offer.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB2GgKl0Dw9aqpw4jj162bXvBVmNefDLEs',
     FormsModule,
     //BsDropdownModule.forRoot(),
     ToastrModule.forRoot({
