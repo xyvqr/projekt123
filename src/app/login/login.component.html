@@ -1,16 +1,14 @@
 
-<body class="text-center" data-new-gr-c-s-check-loaded="14.1052.0" data-gr-ext-installed="">
-
   <main class="form-signin form">
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
       <h1 class="h3 mb-3 fw-normal">Zaloguj się</h1>
 
       <div class="form-floating">
-        <label for="">Adres Email</label>
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Adres Email</label>
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Hasło">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Hasło" formControlName="password">
         <label for="floatingPassword">Hasło</label>
       </div>
 
@@ -30,10 +28,6 @@
 
      </footer>
 
-
-      <footer class="pt-5 my-5 text-muted border-top">
-        Created by K team · © 2022
-      </footer>
     </form>
   </main>
 

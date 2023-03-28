@@ -16,7 +16,8 @@
         <a class="nav-link" routerLink="/opinie" routerLinkActive="active">Opinie</a>
       </li>
       <li class="nav-item nv5 kf">
-        <a class="nav-link" routerLink="/login" routerLinkActive="active">Zaloguj sie</a>
+        <a class="nav-link" routerLink="/login" routerLinkActive="active" *ngIf="!authService.isLoggedIn()" >Zaloguj sie</a>
+        <a class="nav-link" routerLink="" *ngIf="authService.isLoggedIn()" (click)="authService.logout()">{{authService.getUser().userName}}</a>
       </li>
     </ul>
 <!--    <div class="collapse navbar-collapse" id="navbarCollapse">-->

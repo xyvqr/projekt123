@@ -3,29 +3,50 @@
   <img class="bg2" src="../../assets/bg2.jpg" alt="">
 </div>
 <main class="fg">
-    <div class="">
-      <h1 class="dfw-bold txt_d">Dodaj opinię</h1>
-        <input #opinie placeholder="Wpisz opinię" type="text">
-        <button class="btn_add" (click)="add($event)" #btn>Wyslij</button>
-    </div>
+  <div class="" *ngIf="authService.isLoggedIn()">
+    <h1 class="dfw-bold txt_d">Dodaj opinię</h1>
+
+    <form class="mb-3" [formGroup]="opinionForm" (ngSubmit)="newOpinion()">
+      <div class="input-group col-md-12  mb-1">
+        <textarea class="form-control" [ngClass]="{ 'is-invalid': opinionForm.controls['text'].errors?.required && opinionForm.controls['text'].touched }"
+                  id="exampleFormControlTextarea1" rows="3" placeholder="Wpisz opinię" formControlName="text"></textarea>
+        <div class="invalid-feedback" *ngIf="opinionForm.controls['text'].errors?.required">
+          {{getRequiredErrorMessage()}}
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Wyślij</button>
+    </form>
+
+  </div>
 
 </main>
 <body>
 <!--<img src="https://cdn.galleries.smcloud.net/t/galleries/gf-NiY6-dYca-E9ai_zdjecie-65633-664x442-nocrop.JPG"-->
 <!--     alt="Flowers" width="460" height="345">-->
 
-  <div class="comment" *ngFor="let person of comments; trackBy: trackItem">
-    {{ person }}
-  </div>
+<div class="comment" *ngFor="let opinion of opinions;">
+  <span>{{opinion.authorUserName}} pisze:</span>
+  <hr>
+  <p>{{opinion.text}}</p>
+</div>
 
 <div class="offer">
 
 </div>
 
 <style>
-  h1 {color: black}
-  h2 {color: red;}
-  p {color: gray; font-size: 18px;}
+  h1 {
+    color: black
+  }
+
+  h2 {
+    color: red;
+  }
+
+  p {
+    color: gray;
+    font-size: 18px;
+  }
 
 </style>
 
@@ -40,7 +61,6 @@
 
 <!--  </div>-->
 <!--</footer>-->
-
 
 
 <footer class="pt-5 my-5 text-muted border-top">

@@ -1,3 +1,29 @@
 . img {
   margin: 5px; border: 3px solid #ccc; float: left; width: 180px;
 }
+
+.offers{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.offer-header{
+  text-align: left;
+  color: green;
+}
+
+.offers img{
+  border-radius: 5px;
+}
+
+.offer-body{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+}
+
+.offer-content{
+  font-family: Arial, sans-serif;
+}

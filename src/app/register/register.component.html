@@ -1,21 +1,48 @@
-<form #registerForm='ngForm' (ngSubmit)="register()" autocomplete="off">
+<form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+
   <h2 class="text-center text-primary">Zarejestruj się</h2>
-    <hr>
-    <div class="form-group">
-      <input type="text" class="form-control" name="uzytkownik"
-             [(ngModel)]="model.uzytkownik" placeholder="Użytkownik">
+  <hr>
 
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <input type="email" class="form-control" [ngClass]="{ 'is-invalid': (registerForm.controls['email'].errors?.required || registerForm.controls['email'].errors?.email) && registerForm.controls['email'].touched }"
+             name="email" formControlName="email" placeholder="Email">
+      <div class="invalid-feedback" *ngIf="registerForm.controls['email'].errors?.required">
+        {{getRequiredErrorMessage()}}
+      </div>
+      <div class="invalid-feedback" *ngIf="registerForm.controls['email'].errors?.email">
+        {{getInvalidEmailErrorMessage()}}
+      </div>
     </div>
-    <div class="form-group">
-      <input type="password" class="form-control" name="haslo"
-             [(ngModel)]="model.uzytkownik" placeholder="Hasło">
-    </div>
-    <div class="form-group text-center">
-      <button class="btn btn-success mr-2" type="submit">Zarejestruj się!</button>
-  <!--    <button class="btn btn-success mr-2" (click)="cancel()" type="button">Cancel</button>-->
-    </div>
-    <footer class="pt-5 my-5 text-muted border-top">
-      Created by K team · © 2022
-    </footer>
+  </div>
 
-  </form>
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <input type="text" class="form-control is-invalid" [ngClass]="{ 'is-invalid': registerForm.controls['userName'].errors?.required && registerForm.controls['userName'].touched}"
+             name="userName" formControlName="userName" placeholder="Nazwa użytkownika">
+      <div class="invalid-feedback" *ngIf="registerForm.controls['userName'].errors?.required">
+        {{getRequiredErrorMessage()}}
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <input type="password" class="form-control" [ngClass]="{ 'is-invalid': registerForm.controls['password'].invalid && registerForm.controls['password'].touched}"
+             name="password" formControlName="password" placeholder="Hasło">
+      <div class="invalid-feedback" *ngIf="registerForm.controls['password'].invalid">
+        {{getPasswordErrorMessage()}}
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group text-center">
+    <button class="btn btn-success mr-2" type="submit">Zarejestruj się!</button>
+    <!--    <button class="btn btn-success mr-2" (click)="cancel()" type="button">Cancel</button>-->
+  </div>
+  <footer class="pt-5 my-5 text-muted border-top">
+    Created by K team · © 2022
+  </footer>
+
+</form>

@@ -1,0 +1,13 @@
+textarea{
+  resize: none;
+  margin: 0;
+}
+
+form{
+  padding: 0;
+  margin: 0;
+}
+
+.fg{
+  left: 0;
+}

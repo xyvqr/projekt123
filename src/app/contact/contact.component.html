@@ -1,7 +1,7 @@
 <div class="bg-c-2">
   <img class="bg2" src="../../assets/bg2.jpg" alt="">
 </div>
-<div class="left">
+<div class="left mb-0">
   <div class="contact h-100 p-5 text-white rounded-3">
     <h2>Kontakt</h2>
 
@@ -16,8 +16,23 @@
 
   </div>
 </div>
-<div class="right">
-  <img class="img" src="../../assets/mapka1.PNG" alt="">
+
+<form class="mt-0 pt-0" *ngIf="authService.isLoggedIn()" [formGroup]="messageForm" (ngSubmit)="newMessage()">
+  <div class="input-group col-md-12  mb-1">
+        <textarea class="form-control" [ngClass]="{ 'is-invalid': messageForm.controls['text'].errors?.required && messageForm.controls['text'].touched }"
+                  id="exampleFormControlTextarea1" rows="3" placeholder="Wpisz wiadomość" formControlName="text"></textarea>
+    <div class="invalid-feedback" *ngIf="messageForm.controls['text'].errors?.required">
+      {{getRequiredErrorMessage()}}
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary mt-2">Wyślij</button>
+</form>
+
+<div class="right" *ngIf="apiLoaded | async">
+  <google-map [center]="{lat: 50.319695582437895, lng: 22.582891637640802}" height="500px" width="100%" [zoom]="12">
+    <map-marker [position]="{lat: 50.319695582437895, lng: 22.582891637640802}"></map-marker>
+  </google-map>
+
 </div>
 <footer class="pt-5 my-5 text-muted border-top">
   Created by K team · © 2022

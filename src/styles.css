@@ -186,7 +186,7 @@
 .offer_txt {
     background: white;
     color: black;
- 
+
 }
 
 .offer {
@@ -209,7 +209,7 @@ form {
     margin-bottom: 30px;
 }
 
-.form div{ 
+.form div{
     padding: 40px;
 }
 
@@ -296,9 +296,9 @@ form {
         height: 5px;
         width: 5px;
         background: rgb(112, 187, 0);
-    
+
     }
-    
+
     .nv2::after {
         content: '';
         top: 17px;
@@ -308,7 +308,7 @@ form {
         width: 5px;
         background: rgb(112, 187, 0);
     }
-    
+
     .nv3::after {
         content: '';
         top: 17px;
@@ -319,7 +319,7 @@ form {
         background: rgb(112, 187, 0);
     }
 
-    
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -338,12 +338,12 @@ form {
     .nv1::after {
         display: none;
     }
-    
+
     .nv2::after {
         display: none;
 
     }
-    
+
     .nv3::after {
         display: none;
     }
@@ -389,9 +389,9 @@ form {
         height: 5px;
         width: 5px;
         background: rgb(112, 187, 0);
-    
+
     }
-    
+
     .nv2::after {
         content: '';
         top: 17px;
@@ -401,7 +401,7 @@ form {
         width: 5px;
         background: rgb(112, 187, 0);
     }
-    
+
     .nv3::after {
         content: '';
         top: 17px;
@@ -411,7 +411,7 @@ form {
         width: 5px;
         background: rgb(112, 187, 0);
     }
-    
+
 }
 
 /* 768  1198 */
