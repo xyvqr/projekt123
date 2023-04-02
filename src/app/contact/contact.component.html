@@ -7,26 +7,55 @@
 
     <p>Skup Owoców VegaFruit</p>
 
-    <p>E-mail: skupowocow@wp.pl</p>
+    <p><i class="fa fa-mail-reply-all"></i> skupowocow@wp.pl</p>
 
-    <p>Telefon: 555 666 777</p>
+    <p><i class="fa fa-phone"></i> 555 666 777</p>
+
 
     <p class="lead mb-0"><a href="offer" class="text-white fw-bold">Oferta</a></p>
 
 
+
   </div>
+
 </div>
 
-<form class="mt-0 pt-0" *ngIf="authService.isLoggedIn()" [formGroup]="messageForm" (ngSubmit)="newMessage()">
+<!--<form class="mt-0 pt-0" *ngIf="authService.isLoggedIn()" [formGroup]="messageForm" (ngSubmit)="newMessage()">-->
+<!--  <div class="input-group col-md-12  mb-1">-->
+<!--        <textarea class="form-control" [ngClass]="{ 'is-invalid': messageForm.controls['text'].errors?.required && messageForm.controls['text'].touched }"-->
+<!--                  id="exampleFormControlTextarea1" rows="3" placeholder="Wpisz wiadomość" formControlName="text"></textarea>-->
+<!--    <div class="invalid-feedback" *ngIf="messageForm.controls['text'].errors?.required">-->
+<!--      {{getRequiredErrorMessage()}}-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <button type="submit" class="btn btn-primary mt-2">Wyślij</button>-->
+<!--</form>-->
+<!--<form class="mt-0 pt-0" [formGroup]="messageForm" (ngSubmit)="newMessage()">-->
+<!--  <div class="input-group col-md-12  mb-1">-->
+<!--    <textarea class="form-control" [ngClass]="{ 'is-invalid': messageForm.controls['text'].errors?.required && messageForm.controls['text'].touched }"-->
+<!--              id="exampleFormControlTextarea1" rows="3" placeholder="Wpisz wiadomość" formControlName="text"></textarea>-->
+<!--    <div class="invalid-feedback" *ngIf="messageForm.controls['text'].errors?.required">-->
+<!--      {{getRequiredErrorMessage()}}-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <button type="submit" class="btn btn-primary mt-2">Wyślij</button>-->
+<!--</form>-->
+<div *ngIf="!authService.isLoggedIn()">
+  <p>Musisz być zalogowany, aby móc wysłać wiadomość. <a routerLink="/login">Zaloguj się</a>.</p>
+</div>
+
+<form class="mt-0 pt-0" [formGroup]="messageForm" (ngSubmit)="newMessage()">
   <div class="input-group col-md-12  mb-1">
-        <textarea class="form-control" [ngClass]="{ 'is-invalid': messageForm.controls['text'].errors?.required && messageForm.controls['text'].touched }"
-                  id="exampleFormControlTextarea1" rows="3" placeholder="Wpisz wiadomość" formControlName="text"></textarea>
+    <textarea class="form-control" [ngClass]="{ 'is-invalid': messageForm.controls['text'].errors?.required && messageForm.controls['text'].touched }"
+              id="exampleFormControlTextarea1" rows="3" placeholder="Wpisz wiadomość" formControlName="text"></textarea>
     <div class="invalid-feedback" *ngIf="messageForm.controls['text'].errors?.required">
       {{getRequiredErrorMessage()}}
     </div>
   </div>
   <button type="submit" class="btn btn-primary mt-2">Wyślij</button>
 </form>
+
+
 
 <div class="right" *ngIf="apiLoaded | async">
   <google-map [center]="{lat: 50.319695582437895, lng: 22.582891637640802}" height="500px" width="100%" [zoom]="12">

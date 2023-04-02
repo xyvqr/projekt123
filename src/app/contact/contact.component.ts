@@ -24,7 +24,7 @@ export class ContactComponent implements OnInit {
   });
 
   constructor(httpClient: HttpClient, public authService: AuthService, private messageService: MessageService) {
-    this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyAaGr0O56b2BKZK1Nto47qCkI1EHqg34IA', 'callback')
+    this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyBfndnFvcTJpXE67XiUSBnkdybtvjJZRNk', 'callback')
       .pipe(
         map(() => {
           return true;

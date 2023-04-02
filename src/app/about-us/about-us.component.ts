@@ -9,18 +9,18 @@ export class AboutUsComponent implements OnInit {
 
   imageObject: Array<object> = [
     {
-      image: 'assets/mapka.png',
-      thumbImage: 'assets/mapka.png',
+      image: 'assets/c1.jpg',
+      thumbImage: 'assets/c1.jpg',
       alt: 'Image'
     },
     {
-      image: 'assets/about_1.jpg',
-      thumbImage: 'assets/about_1.jpg',
+      image: 'assets/c2.jpg',
+      thumbImage: 'assets/c2.jpg',
       alt: 'Image'
     },
     {
-      image: 'assets/mapka.png',
-      thumbImage: 'assets/mapka.png',
+      image: 'assets/c3.jpg',
+      thumbImage: 'assets/c3.jpg',
       alt: 'Image'
     }
   ];

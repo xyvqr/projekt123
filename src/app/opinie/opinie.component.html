@@ -24,11 +24,37 @@
 <!--<img src="https://cdn.galleries.smcloud.net/t/galleries/gf-NiY6-dYca-E9ai_zdjecie-65633-664x442-nocrop.JPG"-->
 <!--     alt="Flowers" width="460" height="345">-->
 
-<div class="comment" *ngFor="let opinion of opinions;">
-  <span>{{opinion.authorUserName}} pisze:</span>
-  <hr>
-  <p>{{opinion.text}}</p>
+<!--<div class="comment" *ngFor="let opinion of opinions;">-->
+<!--  <span>{{opinion.authorUserName}} pisze:</span>-->
+<!--  <hr>-->
+<!--  <p>{{opinion.text}}</p>-->
+<!--</div>-->
+<div *ngIf="opinions.length > 0">
+  <div class="comments" *ngFor="let opinion of opinions;">
+    <div class="comment">
+      <span>{{opinion.authorUserName}} pisze:</span>
+      <hr>
+      <p>{{opinion.text}}</p>
+    </div>
+  </div>
 </div>
+
+<div *ngIf="!authService.isLoggedIn()">
+  <p>Musisz być zalogowany, aby móc wysłać opinie. <a routerLink="/login">Zaloguj się</a>.</p>
+</div>
+
+
+<form class="mt-0 pt-0" *ngIf="authService.isLoggedIn()" [formGroup]="opinionForm" (ngSubmit)="addOpinion()">
+  <div class="input-group col-md-12  mb-1">
+    <textarea class="form-control" [ngClass]="{ 'is-invalid': opinionForm.controls['text'].errors?.required && opinionForm.controls['text'].touched }"
+              id="exampleFormControlTextarea1" rows="3" placeholder="Wpisz opinię" formControlName="text"></textarea>
+    <div class="invalid-feedback" *ngIf="opinionForm.controls['text'].errors?.required">
+      {{getRequiredErrorMessage()}}
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary mt-2">Dodaj opinię</button>
+</form>
+
 
 <div class="offer">
 
